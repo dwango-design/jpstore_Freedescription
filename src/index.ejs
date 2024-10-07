@@ -1,0 +1,31 @@
+<%
+  const crypto = require('crypto');
+  const hashNumb = crypto.randomBytes(8).toString('hex');
+  const self = {
+    root: './',
+    uniqueselector: 'top',
+    title: 'test-site',
+    site_name: 'test-site',
+    description: 'ディスクリプションテキスト',
+    keywords: 'キーワード',
+    pageurl:'https://test-site.jp/',
+    hash: hashNumb
+  }
+%>
+<!DOCTYPE html>
+<html>
+    <head>
+      <%- include(self.root + 'include/common/_head', {self}) %>
+    </head>
+    <body>
+      <%- include(self.root + 'include/common/header/_header', {self}) %>
+      <div class="lo-Wrapper">
+        <div class="lo-Wrapper_Contner">
+          contents
+        </div>
+      </div>
+      <%- include(self.root + 'include/common/footer/_footer', {self}) %>
+      <%- include(self.root + 'include/common/scripts/_scripts-Global', {self}) %>
+      <%- include(self.root + 'include/common/scripts/_scripts-Static', {self}) %>
+    </body>
+</html>

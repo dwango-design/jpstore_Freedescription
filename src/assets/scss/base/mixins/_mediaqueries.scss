@@ -1,0 +1,94 @@
+@use "../variables/variables.scss" as var;
+
+// 荒い粒度
+// pc用
+@mixin for-pc {
+  @media screen and (min-width: var.$size-tablet) {
+    @content;
+  }
+}
+
+// tablet用
+@mixin for-tablet {
+  @media screen and (min-width: var.$size-sp + 1) and (max-width: var.$size-tablet - 1) {
+    @content;
+  }
+}
+
+// sp用
+@mixin for-sp {
+  @media screen and (max-width: var.$size-sp) {
+    @content;
+  }
+}
+
+// tabletより広い
+@mixin for-pc-tablet {
+  @media screen and (min-width: var.$size-sp + 1) {
+    @content;
+  }
+}
+
+// tabletより狭い
+@mixin for-tablet-sp {
+  @media screen and (max-width: var.$size-tablet - 1) {
+    @content;
+  }
+}
+
+// より細かい粒度、上記で足りないとき分割して使う
+// pc => pc-larger + pc-small
+@mixin for-pc-larger {
+  @media screen and (min-width: var.$size-pc-large) {
+    @content;
+  }
+}
+@mixin for-pc-small {
+  @media screen and (min-width: var.$size-tablet + 1) and (max-width: var.$size-pc-large - 1 ) {
+    @content;
+  }
+}
+
+// tablet => tablet-large + tablet-small
+@mixin for-tablet-large {
+  @media screen and (min-width: var.$size-tablet-small + 1) and (max-width: var.$size-tablet) {
+    @content;
+  }
+}
+@mixin for-tablet-small {
+  @media screen and (min-width: var.$size-sp + 1) and (max-width: var.$size-tablet-small) {
+    @content;
+  }
+}
+
+// sp => sp-large + sp-smaller
+@mixin for-sp-large {
+  @media screen and (min-width: var.$size-sp-smaller) and (max-width: var.$size-sp) {
+    @content;
+  }
+}
+@mixin for-sp-smaller {
+  @media screen and (max-width: var.$size-sp-small) {
+    @content;
+  }
+}
+
+@mixin for-pc-tablet-larger {
+  @media screen and (min-width: var.$size-tablet-small + 1) {
+    @content;
+  }
+}
+
+@mixin for-tablet-small-sp {
+  @media screen and (max-width: var.$size-tablet-small) {
+    @content;
+  }
+}
+
+@mixin hack($IE-ver: null) {
+  @if $IE-ver == 'gteIE11' {
+    @at-root _:-ms-fullscreen,:root & {
+      @content;
+    }
+  }
+}

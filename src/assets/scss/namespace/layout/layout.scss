@@ -1,0 +1,15 @@
+@use "../../base/utils.scss" as uti;
+
+.lo-Wrapper {
+  background: uti.$color-base-white;
+  min-width: 300px;
+  width: 100%;
+}
+.lo-Wrapper_Contner {
+  @include uti.page-container;
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row nowrap;
+  padding-bottom: 64px;
+  padding-top: 16px;
+}

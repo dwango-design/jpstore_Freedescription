@@ -1,0 +1,26 @@
+@use "../../base/utils.scss" as uti;
+
+.st-HeaderMain {
+  background-color: uti.$color-base-white;
+  border-bottom: solid 1px uti.$color-main-bordergray;
+  position: relative;
+  width: 100%;
+}
+.st-HeaderMain_Container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  @include uti.for-pc-tablet-larger {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include uti.for-tablet-small-sp {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

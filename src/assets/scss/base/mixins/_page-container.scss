@@ -1,0 +1,25 @@
+@use "../variables/variables.scss" as var;
+@use "./_mediaqueries.scss" as media;
+
+@mixin page-container() {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @include media.for-pc {
+    max-width: var.$size-pc-content + var.$size-pc-margin * 2;
+    padding-left: var.$size-pc-margin;
+    padding-right: var.$size-pc-margin;
+  }
+
+  @include media.for-tablet {
+    padding-left: var.$size-tablet-margin;
+    padding-right: var.$size-tablet-margin;
+  }
+
+  @include media.for-sp {
+    padding-left: var.$size-sp-margin;
+    padding-right: var.$size-sp-margin;
+  }
+}
